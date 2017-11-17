@@ -1,0 +1,29 @@
+{
+  "name": "liriproject",
+  "version": "1.0.0",
+  "description": "my first node command line app",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/db2147/liriproject.git"
+  },
+  "keywords": [
+    "liri",
+    "node",
+    "project",
+    "James",
+    "coding"
+  ],
+  "author": "David Bierma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/db2147/liriproject/issues"
+  },
+  "homepage": "https://github.com/db2147/liriproject#readme",
+  "dependencies": {
+    "twitter": "^1.7.1"
+  }
+}
