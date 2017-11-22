@@ -24,7 +24,8 @@ function getMyTweets() {
     };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
-            for (var i = 0; i < 20; i++) {
+
+            for (var i = 0; i < tweets.length; i++) {
                 console.log(tweets[i].text);
                 console.log(tweets[i].created_at);
                 console.log("-------------------------------------------------------");
@@ -34,7 +35,35 @@ function getMyTweets() {
             console.log(error);
         }
     });
-        
+
+}
+
+var spotify = require("spotify");
+var arg1 = process.argv[2];
+
+function getMySong() {
+    // ... logic that uses your api key to retrieve a song
+
+    var client = new spotify(keys);
+
+
+
+
+
+if (arg1 === "my-tweets") {
+    getMyTweets();
+
+}  else if (arg1 === "spotify-song") {
+    console.log("blank");
+
+}  else if (arg1 === "movie-this") {
+    console.log("blank");
+
+}  else if (arg1 === "do-what-it-says") {
+    console.log("blank");
+
+} else {
+    console.log("I don't know this command... ");
 }
 
 
