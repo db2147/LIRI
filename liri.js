@@ -38,9 +38,6 @@ function getMyTweets() {
     });
 
 }
-
-search: function({ type: 'artist OR album OR track', query: 'My search query', limit: 5 }, callback);
-
 var spotify = require('node-spotify-api');
 
 var spotify = new Spotify({
@@ -54,7 +51,7 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, d
  }
 
 console.log(data); 
-});
+}); 
 
 
 
