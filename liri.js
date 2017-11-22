@@ -14,6 +14,7 @@ var arg1 = process.argv[2];
 
 
 
+
 function getMyTweets() {
     // ... logic that uses your api key to retrieve tweets
 
@@ -38,15 +39,22 @@ function getMyTweets() {
 
 }
 
-var spotify = require("spotify");
-var arg1 = process.argv[2];
+search: function({ type: 'artist OR album OR track', query: 'My search query', limit: 5 }, callback);
 
-function getMySong() {
-    // ... logic that uses your api key to retrieve a song
+var spotify = require('node-spotify-api');
 
-    var client = new spotify(keys);
+var spotify = new Spotify({
+    id: '2fe392f8af4848e3b98721af5fbd4851',
+    secret: 'EGDXozuExiynFeUFk6CCooIxK5dGr7pNUEl55ZQnbU7As'
+});
 
+spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+ if (err) {
+   return console.log('Error occurred: ' + err);
+ }
 
+console.log(data); 
+});
 
 
 
