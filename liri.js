@@ -8,6 +8,8 @@ Arguments:
 
 */
 var keys = require("./keys.js");
+var keys = require("./spotifykeys.js");
+ 
 
 var Twitter = require("twitter");
 var arg1 = process.argv[2];
@@ -38,11 +40,11 @@ function getMyTweets() {
     });
 
 }
-var spotify = require('node-spotify-api');
+var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify({
     id: '2fe392f8af4848e3b98721af5fbd4851',
-    secret: 'EGDXozuExiynFeUFk6CCooIxK5dGr7pNUEl55ZQnbU7As'
+    secret: 'd36c3bfe004c4c03b12e392cefda57b2'
 });
 
 spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
