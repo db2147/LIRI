@@ -8,14 +8,9 @@ Arguments:
 
 */
 var keys = require("./keys.js");
-var keys = require("./spotifykeys.js");
- 
-
 var Twitter = require("twitter");
+
 var arg1 = process.argv[2];
-
-
-
 
 function getMyTweets() {
     // ... logic that uses your api key to retrieve tweets
@@ -40,6 +35,8 @@ function getMyTweets() {
     });
 
 }
+var keys = require("./spotifykeys.js");
+
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify({
@@ -54,6 +51,22 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, d
 
 console.log(data); 
 }); 
+
+//..omdb section
+
+var keys = require("./omdbkeys.js");
+
+omdb.find('Forrest', 'movie').then(function (movie) {
+    (movie).should.be.a.Array;
+    movie[0].Title.should.be.exactly('Forrest Gump');
+});
+ 
+omdb.get('Breaking Bad', 'series').then(function (serie) {
+    serie.Title.should.be.exactly('Breaking Bad');
+    serie.should.have.properties({
+        Response: 'True'
+    });
+});
 
 
 
