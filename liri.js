@@ -10,7 +10,14 @@ Arguments:
 var keys = require("./keys.js");
 var Twitter = require("twitter");
 
+var spotifyKeys = require("./spotifykeys.js");
+var Spotify = require('node-spotify-api');
+
+var omdbKeys = require("./omdbkeys.js");               //api is returning an error but when I test in postman it is ok                     
+var request = require("http://www.omdbapi.com/?i=tt3896198&apikey=b9b0673f");
+
 var arg1 = process.argv[2];
+var arg2 = process.argv[3];
 
 function getMyTweets() {
     // ... logic that uses your api key to retrieve tweets
@@ -35,9 +42,7 @@ function getMyTweets() {
     });
 
 }
-var keys = require("./spotifykeys.js");
 
-var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify({
     id: '2fe392f8af4848e3b98721af5fbd4851',
@@ -53,8 +58,10 @@ console.log(data);
 }); 
 
 //..omdb section
+var movieName = process.argv[2];
 
-var keys = require("./omdbkeys.js");
+// wrap code in function called getAMovie
+function getAMovie(movieName) {
 
 omdb.find('Forrest', 'movie').then(function (movie) {
     (movie).should.be.a.Array;
@@ -68,6 +75,9 @@ omdb.get('Breaking Bad', 'series').then(function (serie) {
     });
 });
 
+// returning the parameter movieName from function getAMovie
+return movieName;
+}
 
 
 if (arg1 === "my-tweets") {
@@ -76,14 +86,18 @@ if (arg1 === "my-tweets") {
 }  else if (arg1 === "spotify-song") {
     console.log("blank");
 
-}  else if (arg1 === "movie-this") {
-    console.log("blank");
+}   else if (arg1 === "movie-this") {
+        getAMovie(arg2);
 
 }  else if (arg1 === "do-what-it-says") {
     console.log("blank");
 
 } else {
     console.log("I don't know this command... ");
-}
+
+} 
+
+    
+
 
 
