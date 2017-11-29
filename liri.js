@@ -73,9 +73,19 @@ function getAMovie(movieName) {
     // If the request is successful
     if (!error && response.statusCode === 200) {
 
-        // Parse the body of the site and recover just the imdbRating
-        // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-        console.log("Release Year: " + JSON.parse(body).Year);
+    //     Parse the body of the site and recover just the imdbRating
+    //     (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+    //    https://stackoverflow.com/questions/46500553/referencing-json-data-result-from-api-request-javascript
+    //    https://reformatcode.com/code/javascript/referencing-json-data-result-from-api-request---javascript 
+       var body = JSON.parse(body);
+        console.log("Title: " + body.Title);        
+        console.log("Release Year: " + body.Year);
+        console.log("IMdB Rating: " + body.imdbRating);
+        console.log("Country: " + body.Country);
+        console.log("Language: " + body.Language);
+        console.log("Plot: " + body.Plot);
+        console.log("Actors: " + body.Actors);
+        console.log("Rotten Tomatoes Rating: " + body.Ratings[2].Value????RottenTomatoes???);
     }
 });
 
