@@ -42,19 +42,20 @@ function getMyTweets() {
     });
 
 }
-
+    //created a function for spotify
 function spotifySong(songName) {
     var spotify = new Spotify({
         id: '2fe392f8af4848e3b98721af5fbd4851',
         secret: 'd36c3bfe004c4c03b12e392cefda57b2'
     });
 
-    spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+    spotify.search({ type: 'track', query: 'songName' }, function(err, data) {
     if (err) {
     return console.log('Error occurred: ' + err);
     }
 
     console.log(data); 
+    spotifySong(); // not sure if this is needed, or if the if/else statement at bottom calls function
     }); 
 }
 
@@ -94,7 +95,8 @@ if (arg1 === "my-tweets") {
     getMyTweets();
 
 }  else if (arg1 === "spotify-song") {
-    console.log("blank");
+    console.log("songName");
+// spotify song 
 
 }   else if (arg1 === "movie-this") {
         getAMovie(arg2);
