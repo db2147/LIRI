@@ -7,13 +7,16 @@ Arguments:
 - do-what-it-says
 
 */
+var fs = require("fs");
 var keys = require("./keys.js");
+
 var Twitter = require("twitter");
 
 var spotifyKeys = require("./spotifykeys.js");
 var Spotify = require('node-spotify-api');
 
-var omdbKeys = require("./omdbkeys.js");               //api is returning an error but when I test in postman it is ok                     
+//var omdbKeys = require("./omdbkeys.js");    
+
 var request = require("request");
 
 var arg1 = process.argv[2];
@@ -22,7 +25,7 @@ var arg2 = process.argv[3];
 function getMyTweets() {
     // ... logic that uses your api key to retrieve tweets
 
-    var client = new Twitter(keys);
+    var client = new Twitter(keys.twitterKeys);
 
     var params = {
         screen_name: 'Jose Ole'
@@ -43,7 +46,7 @@ function getMyTweets() {
 
 }
     //created a function for spotify
-function spotifySong(songName) {
+function spotifySong(song) {
     var spotify = new Spotify({
         id: '2fe392f8af4848e3b98721af5fbd4851',
         secret: 'd36c3bfe004c4c03b12e392cefda57b2'
@@ -54,8 +57,13 @@ function spotifySong(songName) {
     return console.log('Error occurred: ' + err);
     }
 
-    console.log(data); 
-    spotifySong(); // not sure if this is needed, or if the if/else statement at bottom calls function
+    console.log(data); // print the contents of the data
+
+    var dataArr = data.split(","); // split it by commas (to make it more readable)
+
+    console.log(dataArr); //re-display the content as an array for later use
+
+    //spotifySong(); // not sure if this is needed, or if the if/else statement at bottom calls function
     }); 
 }
 
