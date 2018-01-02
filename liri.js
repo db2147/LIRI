@@ -8,6 +8,7 @@ Arguments:
 
 */
 var fs = require("fs");
+// creating our filepath to keys.js
 var keys = require("./keys.js");  
 
 var Twitter = require("twitter");
