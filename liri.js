@@ -1,6 +1,6 @@
 /* Command: node liri.js  
 
-Arguments:
+  (use with above command)
 - my-tweets
 - spotify-song
 - movie-this
