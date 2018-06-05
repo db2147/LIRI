@@ -1,4 +1,4 @@
-/* Command: node liri.js <argument>
+/* Command: node liri.js  
 
 Arguments:
 - my-tweets
@@ -16,7 +16,7 @@ var Twitter = require("twitter");
 // var spotifyKeys = require("./spotifykeys.js");
 var Spotify = require('node-spotify-api');
 
-// var omdbKeys = require("./omdbkeys.js");               //api is returning an error but when I test in postman it is ok                     
+// var omdbKeys = require("./omdbkeys.js");                                     
 var request = require("request");
 
 var arg1 = process.argv[2];
@@ -61,14 +61,12 @@ function spotifySong(song) {
             return console.log('Error occurred: ' + err);
         }
 
+         
         console.log("ALBUM: " + data.tracks.items[0].album.name);
         console.log("ARTIST: " + data.tracks.items[0].artists[0].name);
         console.log("SONG TITLE: " + data.tracks.items[0].name);
         console.log("SONG PREVIEW LINK: " + data.tracks.items[0].album.external_urls.spotify);
-        // album
-        // artist
-        // preview link
-        // song name
+         
 
     });
 }
@@ -96,9 +94,7 @@ function getAMovie(movieName) {
         if (!error && response.statusCode === 200) {
 
             //     Parse the body of the site and recover just the imdbRating
-            //     (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-            //    https://stackoverflow.com/questions/46500553/referencing-json-data-result-from-api-request-javascript
-            //    https://reformatcode.com/code/javascript/referencing-json-data-result-from-api-request---javascript 
+
             var body = JSON.parse(body);
 
             console.log("Title: " + body.Title);
